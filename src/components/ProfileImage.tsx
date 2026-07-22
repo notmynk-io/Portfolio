@@ -38,9 +38,6 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
           className="w-full h-full object-cover rounded-full transition-transform duration-500 hover:scale-105"
         />
       </div>
-
-      {/* Online Status Indicator */}
-      <span className="absolute bottom-1 right-1 w-3.5 h-3.5 bg-emerald-400 border-2 border-slate-950 rounded-full shadow-lg z-20" />
     </div>
   );
 };
