@@ -85,8 +85,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({ onOpenResume, onOpenContact })
                   <div className="text-[10px] text-slate-400 uppercase tracking-wider">Freelance Web Dev</div>
                 </div>
                 <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800/80 text-center">
-                  <div className="text-xl font-extrabold text-purple-400">15+ Built</div>
-                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">IoT & AI Systems</div>
+                  <div className="text-xl font-extrabold text-purple-400">20+ Built</div>
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider">Web,IoT & AI Systems</div>
                 </div>
               </div>
 
@@ -102,7 +102,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({ onOpenResume, onOpenContact })
                 </div>
                 <div className="flex items-center gap-2.5">
                   <HeartHandshake className="w-4 h-4 text-purple-400 shrink-0" />
-                  <span>Mentoring: Atal Tinkering Lab (STEM Innovation)</span>
+                  <span>: Hands-on IoT Development & peer technical support @ Atal Tinkering Lab (STEM Innovation)</span>
                 </div>
               </div>
 
