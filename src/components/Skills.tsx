@@ -1,26 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { SKILL_CATEGORIES } from '../data/portfolioData';
-import { Cpu, Globe, BrainCircuit, CheckCircle2, Code2, Database, Layers, Sparkles } from 'lucide-react';
+import { Cpu, Globe, BrainCircuit, Code2, Shield, Database, Terminal, Cpu as HardwareIcon, Sparkles, Server, Zap, Radio, Lock } from 'lucide-react';
+
+interface TechSkillCard {
+  name: string;
+  category: string;
+  experience: string;
+  projectsBuilt: string;
+  icon: any;
+  color: string;
+  bgGlow: string;
+}
 
 export const Skills: React.FC = () => {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Globe':
-        return <Globe className="w-5 h-5 text-cyan-400" />;
-      case 'Cpu':
-        return <Cpu className="w-5 h-5 text-emerald-400" />;
-      case 'BrainCircuit':
-        return <BrainCircuit className="w-5 h-5 text-purple-400" />;
-      default:
-        return <Code2 className="w-5 h-5 text-blue-400" />;
-    }
-  };
+  const skillsList: TechSkillCard[] = [
+    { name: 'Python', category: 'AI & Systems', experience: 'Advanced', projectsBuilt: '10+ Projects', icon: BrainCircuit, color: 'text-yellow-400 border-yellow-500/40', bgGlow: 'hover:shadow-yellow-500/10' },
+    { name: 'YOLOv8 Computer Vision', category: 'AI Models', experience: 'Specialized', projectsBuilt: '4 Security Models', icon: Shield, color: 'text-red-400 border-red-500/40', bgGlow: 'hover:shadow-red-500/10' },
+    { name: 'FastAPI', category: 'Backend Framework', experience: 'Advanced', projectsBuilt: '6 REST APIs', icon: Zap, color: 'text-emerald-400 border-emerald-500/40', bgGlow: 'hover:shadow-emerald-500/10' },
+    { name: 'ESP32 & Arduino', category: 'IoT & Microcontrollers', experience: 'Expert', projectsBuilt: '8 Hardware Builds', icon: HardwareIcon, color: 'text-cyan-400 border-cyan-500/40', bgGlow: 'hover:shadow-cyan-500/10' },
+    { name: 'Embedded C / C++', category: 'Firmware Development', experience: 'Advanced', projectsBuilt: '12 Firmwares', icon: Cpu, color: 'text-purple-400 border-purple-500/40', bgGlow: 'hover:shadow-purple-500/10' },
+    { name: 'React & TypeScript', category: 'Frontend Engineering', experience: 'Advanced', projectsBuilt: '15+ Modern Apps', icon: Globe, color: 'text-blue-400 border-blue-500/40', bgGlow: 'hover:shadow-blue-500/10' },
+    { name: 'PHP & MySQL', category: 'Full-Stack Web', experience: 'Expert (4 Years)', projectsBuilt: '10+ Client Dashboards', icon: Database, color: 'text-pink-400 border-pink-500/40', bgGlow: 'hover:shadow-pink-500/10' },
+    { name: 'Linux & Bash Security', category: 'Cyber Operations', experience: 'Advanced', projectsBuilt: 'Server Hardening', icon: Terminal, color: 'text-amber-400 border-amber-500/40', bgGlow: 'hover:shadow-amber-500/10' },
+  ];
 
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Background ambient light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[150px] pointer-events-none" />
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-500/5 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
@@ -33,69 +40,67 @@ export const Skills: React.FC = () => {
           className="text-center space-y-3 max-w-3xl mx-auto"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-400">
-            <Layers className="w-3.5 h-3.5" /> Technical Expertise & Stack
+            <Lock className="w-3.5 h-3.5 text-purple-400" /> Technology & Cybersecurity Capabilities
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Skills & Proficiency Matrix
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-heading">
+            Skills & Proficiency Cards
           </h2>
           <p className="text-sm sm:text-base text-slate-400 font-sans">
-            Comprehensive breakdown of programming languages, hardware microcontrollers, web frameworks, and database architecture.
+            Modular technical capabilities spanning artificial intelligence models, hardware sensor microcontrollers, full-stack web engineering, and security hardening.
           </p>
         </motion.div>
 
-        {/* Skill Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {SKILL_CATEGORIES.map((cat, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              whileHover={{ y: -4 }}
-              className="bg-slate-900/80 rounded-2xl border border-slate-800 p-6 space-y-6 hover:border-cyan-500/40 transition-all shadow-xl"
-            >
-              {/* Category Header */}
-              <div className="flex items-center gap-3 border-b border-slate-800 pb-4">
-                <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 shadow-inner">
-                  {getIcon(cat.iconName)}
-                </div>
-                <div>
-                  <h3 className="text-base font-bold text-white tracking-tight">{cat.title}</h3>
-                  <span className="text-[11px] font-mono text-slate-400">{cat.skills.length} Technical Skills</span>
-                </div>
-              </div>
+        {/* Modern Skill Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {skillsList.map((skill, idx) => {
+            const Icon = skill.icon;
+            return (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                whileHover={{ y: -6, scale: 1.02 }}
+                className={`bg-slate-900/90 rounded-2xl border border-slate-800/90 p-5 space-y-4 hover:border-cyan-500/50 transition-all duration-300 shadow-xl group relative overflow-hidden ${skill.bgGlow}`}
+              >
+                {/* Subtle Card Accent Line */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-              {/* Individual Skill Progress Bars */}
-              <div className="space-y-4">
-                {cat.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="space-y-1.5">
-                    <div className="flex justify-between items-center text-xs font-mono">
-                      <span className="font-semibold text-slate-200 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                        {skill.name}
-                      </span>
-                      <span className="text-slate-400 font-normal text-[11px]">{skill.tag}</span>
-                    </div>
-
-                    {/* Progress Bar with Motion Fill */}
-                    <div className="h-2 bg-slate-950 rounded-full overflow-hidden p-0.5 border border-slate-800/90 relative">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.2 + sIdx * 0.1, ease: 'easeOut' }}
-                        className="h-full bg-gradient-to-r from-cyan-500 via-teal-400 to-purple-500 rounded-full shadow-lg shadow-cyan-500/20"
-                      />
-                    </div>
+                {/* Top Card Icon & Category */}
+                <div className="flex items-center justify-between">
+                  <div className={`p-3 rounded-xl bg-slate-950 border ${skill.color} shadow-inner group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-5 h-5" />
                   </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                  <span className="text-[10px] font-mono text-slate-400 bg-slate-950 px-2 py-1 rounded border border-slate-800 font-medium">
+                    {skill.category}
+                  </span>
+                </div>
+
+                {/* Name & Experience Level */}
+                <div className="space-y-1">
+                  <h3 className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors font-heading">
+                    {skill.name}
+                  </h3>
+                  <div className="flex items-center justify-between text-xs font-mono">
+                    <span className="text-slate-400">Proficiency:</span>
+                    <span className="text-cyan-400 font-bold">{skill.experience}</span>
+                  </div>
+                </div>
+
+                {/* Projects Built Footer */}
+                <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                  <span className="text-slate-500">Deployments:</span>
+                  <span className="text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                    {skill.projectsBuilt}
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* All Core Technologies List Tags */}
+        {/* Tech Stack Pills Banner */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -105,19 +110,19 @@ export const Skills: React.FC = () => {
         >
           <div className="text-xs font-mono font-bold uppercase text-slate-400 tracking-wider flex items-center justify-center gap-2">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            Languages, Microcontrollers & Tools Summary
+            Full Tooling & Hardware Ecosystem
           </div>
           <div className="flex flex-wrap justify-center gap-2 font-mono text-xs text-slate-300">
             {[
               'Python', 'C', 'C++', 'Java', 'JavaScript', 'PHP', 'HTML5', 'CSS3', 'MySQL',
               'phpMyAdmin', 'Arduino', 'ESP32', 'ESP8266', 'Sensors (Ultrasonic, Gyro, PIR)',
               'Embedded C/C++', 'Circuit Design', 'YOLOv8', 'FastAPI', 'OpenCV', 'REST APIs',
-              'Tailwind CSS', 'React'
+              'Tailwind CSS', 'React', 'Linux', 'Git', 'Vercel'
             ].map((t) => (
               <motion.span
                 key={t}
                 whileHover={{ scale: 1.08, borderColor: 'rgba(6, 182, 212, 0.6)' }}
-                className="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-200 border border-slate-800 hover:text-cyan-300 transition-colors shadow"
+                className="px-3 py-1.5 rounded-lg bg-slate-950 text-slate-200 border border-slate-800 hover:text-cyan-300 transition-colors shadow cursor-default"
               >
                 {t}
               </motion.span>
@@ -129,4 +134,3 @@ export const Skills: React.FC = () => {
     </section>
   );
 };
-

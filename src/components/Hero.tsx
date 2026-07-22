@@ -1,7 +1,8 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { ArrowRight, Terminal, Cpu, Code2, Sparkles, Download, Mail, ExternalLink, ShieldAlert, CheckCircle, Zap } from 'lucide-react';
+import { ArrowRight, Download, Send, Github, Linkedin, Shield, Terminal, Cpu, Sparkles, Lock, Layers } from 'lucide-react';
+import { ProfileImage } from './ProfileImage';
 
 interface HeroProps {
   onOpenResume: () => void;
@@ -16,254 +17,256 @@ export const Hero: React.FC<HeroProps> = ({
   onExploreProjects,
   onOpenLab,
 }) => {
-  return (
-    <section id="hero" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
-      {/* Background Radial Glow Effects with motion pulse */}
-      <motion.div
-        animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.15, 0.25, 0.15],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-cyan-500/15 rounded-full blur-[140px] pointer-events-none"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'easeInOut',
-          delay: 2,
-        }}
-        className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-purple-500/15 rounded-full blur-[120px] pointer-events-none"
-      />
+  // Typing animation phrases sequence
+  const typingPhrases = [
+    'Initializing Portfolio...',
+    'Loading AI Modules...',
+    'Loading Cybersecurity Systems...',
+    'Loading Projects...',
+    'Welcome.',
+  ];
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentPhrase = typingPhrases[phraseIndex];
+    const typeSpeed = isDeleting ? 30 : 60;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting && currentText === currentPhrase) {
+        // If "Welcome.", pause longer
+        if (phraseIndex === typingPhrases.length - 1) {
+          setTimeout(() => setIsDeleting(true), 3000);
+        } else {
+          setTimeout(() => setIsDeleting(true), 1200);
+        }
+      } else if (isDeleting && currentText === '') {
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % typingPhrases.length);
+      } else {
+        setCurrentText(
+          isDeleting
+            ? currentPhrase.substring(0, currentText.length - 1)
+            : currentPhrase.substring(0, currentText.length + 1)
+        );
+      }
+    }, typeSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, phraseIndex]);
+
+  // Floating Badges positions
+  const techBadges = [
+    { name: 'Python', color: 'border-yellow-500/40 text-yellow-300 bg-yellow-950/60', position: '-top-4 left-6', delay: 0 },
+    { name: 'React', color: 'border-cyan-500/40 text-cyan-300 bg-cyan-950/60', position: 'top-10 -right-6', delay: 0.5 },
+    { name: 'FastAPI', color: 'border-emerald-500/40 text-emerald-300 bg-emerald-950/60', position: 'bottom-20 -right-8', delay: 1 },
+    { name: 'Cybersecurity', color: 'border-purple-500/40 text-purple-300 bg-purple-950/60', position: '-bottom-4 right-10', delay: 1.5 },
+    { name: 'AI', color: 'border-pink-500/40 text-pink-300 bg-pink-950/60', position: '-bottom-4 left-10', delay: 2 },
+    { name: 'Node.js', color: 'border-green-500/40 text-green-300 bg-green-950/60', position: 'bottom-20 -left-8', delay: 2.5 },
+    { name: 'Linux', color: 'border-amber-500/40 text-amber-300 bg-amber-950/60', position: 'top-10 -left-6', delay: 3 },
+  ];
+
+  return (
+    <section id="hero" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden min-h-[90vh] flex items-center">
+      
+      {/* Background World Map & Grid Overlay with Radar Sweep */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Soft Radial Ambient Lighting */}
+        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[150px]" />
+        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[140px]" />
+
+        {/* Cyber Grid Lines */}
+        <div className="absolute inset-0 cyber-grid opacity-30" />
+
+        {/* Radar Sweep Arc */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-cyan-500/10 opacity-40">
+          <div className="w-full h-full rounded-full border border-purple-500/10 scale-75" />
+          <div className="w-full h-full rounded-full border border-emerald-500/10 scale-50" />
+          {/* Rotating Radar Line */}
+          <div className="absolute inset-0 origin-center animate-radar bg-[conic-gradient(from_0deg_at_50%_50%,rgba(6,182,212,0.15)_0deg,transparent_60deg)] rounded-full" />
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Main Bio Content */}
+          {/* LEFT SIDE CONTENT */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-6"
           >
-            
-            {/* Top Status Pill */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs text-slate-300 backdrop-blur shadow-inner"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <span className="font-mono text-emerald-300 font-semibold">{PERSONAL_INFO.freelanceStatus}</span>
-            </motion.div>
-
-            {/* Title & Headline */}
-            <div className="space-y-3">
-              <motion.h1
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]"
-              >
-                Hello, I'm <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-400 bg-clip-text text-transparent">
-                  {PERSONAL_INFO.name}
-                </span>
-              </motion.h1>
-              
-              <motion.h2
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-lg sm:text-xl font-semibold text-slate-300 flex items-center gap-2"
-              >
-                <Terminal className="w-5 h-5 text-cyan-400" />
-                <span>Freelance Web Developer & IoT / AI Engineer</span>
-              </motion.h2>
+            {/* Terminal Typing Status Bar */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs font-mono text-cyan-400 backdrop-blur shadow-lg shadow-cyan-500/5">
+              <Terminal className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+              <span>{currentText}</span>
+              <span className="w-1.5 h-3 bg-cyan-400 animate-pulse" />
             </div>
 
-            {/* Description */}
+            {/* Name Heading */}
+            <div className="space-y-2">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-4xl sm:text-6xl xl:text-7xl font-extrabold text-white tracking-tight font-heading leading-[1.08]"
+              >
+                Mayank Kumar Gupta
+              </motion.h1>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-400 bg-clip-text text-transparent font-mono flex items-center gap-2"
+              >
+                <Shield className="w-5 h-5 text-cyan-400 inline shrink-0" />
+                <span>AI Engineer | Cybersecurity Enthusiast | Full Stack Developer</span>
+              </motion.div>
+            </div>
+
+            {/* Bio Paragraph */}
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl font-sans"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans max-w-2xl"
             >
-              Specialized in engineering full-stack web applications, IoT embedded systems, and AI computer vision. Experienced in <strong className="text-slate-200">PHP, MySQL, JavaScript, Python, ESP32, Arduino, YOLOv8, and FastAPI</strong>.
+              I build <strong className="text-white">AI-powered security systems</strong>, <strong className="text-white">intelligent web applications</strong>, and <strong className="text-white">scalable software</strong>. Specialized in fusing computer vision, embedded microcontrollers, and modern full-stack web architectures for defense and real-world intelligence.
             </motion.p>
 
-            {/* Interactive Tech Tags Pills */}
+            {/* Primary Action Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex flex-wrap gap-2 pt-1 font-mono text-xs"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap items-center gap-3 pt-2"
             >
-              {['PHP & MySQL', 'ESP32 / Arduino', 'YOLOv8 + FastAPI', 'Python & C++', 'REST APIs', 'Dynamic Dashboards', 'Sensors & Circuit Design'].map((tech, i) => (
-                <motion.span
-                  key={tech}
-                  whileHover={{ scale: 1.05, borderColor: 'rgba(6,182,212,0.6)' }}
-                  className="px-3 py-1 rounded-md bg-slate-900/80 text-cyan-300 border border-slate-800/90 shadow-sm transition-colors cursor-default"
-                >
-                  #{tech}
-                </motion.span>
-              ))}
-            </motion.div>
-
-            {/* Call to Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-              className="flex flex-wrap gap-3 pt-4"
-            >
+              {/* View Projects */}
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={onExploreProjects}
-                className="px-6 py-3 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 shadow-xl shadow-cyan-500/20 flex items-center gap-2 transition-all"
+                className="px-6 py-3 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 shadow-xl shadow-cyan-500/20 flex items-center gap-2 transition-all font-sans"
               >
-                Explore Exhibition <ArrowRight className="w-4 h-4" />
+                View Projects <ArrowRight className="w-4 h-4" />
               </motion.button>
 
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={onOpenLab}
-                className="px-5 py-3 rounded-xl font-semibold text-sm text-cyan-300 bg-slate-900 hover:bg-slate-800 border border-cyan-500/30 hover:border-cyan-500/60 flex items-center gap-2 transition-all shadow-md"
-              >
-                <Cpu className="w-4 h-4 text-cyan-400" /> Interactive Hardware & AI Lab
-              </motion.button>
-
+              {/* Download Resume */}
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={onOpenResume}
-                className="px-4 py-3 rounded-xl font-semibold text-sm text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 flex items-center gap-2 transition-all"
+                className="px-5 py-3 rounded-xl font-semibold text-sm text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-cyan-500/50 flex items-center gap-2 transition-all shadow-md font-sans"
               >
-                <Download className="w-4 h-4 text-purple-400" /> Resume
+                <Download className="w-4 h-4 text-cyan-400" /> Download Resume
               </motion.button>
+
+              {/* Contact Me */}
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={onOpenContact}
+                className="px-5 py-3 rounded-xl font-semibold text-sm text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-purple-500/50 flex items-center gap-2 transition-all shadow-md font-sans"
+              >
+                <Send className="w-4 h-4 text-purple-400" /> Contact Me
+              </motion.button>
+
+              {/* Social Links Icons */}
+              <div className="flex items-center gap-2 pl-2 border-l border-slate-800">
+                <motion.a
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  href={PERSONAL_INFO.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/50 transition-colors"
+                  aria-label="GitHub Profile"
+                >
+                  <Github className="w-4 h-4" />
+                </motion.a>
+
+                <motion.a
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  href={PERSONAL_INFO.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/50 transition-colors"
+                  aria-label="LinkedIn Profile"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </motion.a>
+              </div>
             </motion.div>
 
-            {/* Quick Experience Bar */}
+            {/* Quick Metrics */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 text-left font-mono"
+              transition={{ delay: 0.6 }}
+              className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 font-mono text-left"
             >
               <div>
-                <div className="text-2xl font-bold text-white">4+ Years</div>
-                <div className="text-xs text-slate-400">Freelance Development</div>
+                <div className="text-2xl font-bold text-white font-heading">4+ Years</div>
+                <div className="text-xs text-slate-400">Software & Web Dev</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-400">15+ Projects</div>
-                <div className="text-xs text-slate-400">Web, IoT & AI Systems</div>
+                <div className="text-2xl font-bold text-cyan-400 font-heading">15+ Projects</div>
+                <div className="text-xs text-slate-400">AI & Cyber Systems</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-purple-400">B.Tech CSE</div>
-                <div className="text-xs text-slate-400">Usha Martin Univ (2024-28)</div>
+                <div className="text-2xl font-bold text-purple-400 font-heading">B.Tech CSE</div>
+                <div className="text-xs text-slate-400">Usha Martin Univ</div>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right Card: Interactive Developer Terminal Preview */}
+          {/* RIGHT SIDE CONTENT - Circular Profile Image Frame with Floating Tech Badges */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-            className="lg:col-span-5"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="lg:col-span-5 flex items-center justify-center relative py-6"
           >
-            <div className="bg-slate-900/90 rounded-2xl border border-slate-800 shadow-2xl p-5 space-y-4 font-mono text-xs backdrop-blur-md relative group hover:border-cyan-500/40 transition-colors">
-              {/* Terminal Titlebar */}
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3 text-slate-400">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                  <span className="text-[11px] font-bold text-slate-300 ml-2">mayank@system-core:~</span>
-                </div>
-                <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                  ONLINE
-                </span>
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center">
+              
+              {/* Outer Rotating Glowing Ring */}
+              <div className="absolute inset-0 rounded-full border border-cyan-500/30 animate-spin [animation-duration:20s] pointer-events-none" />
+              <div className="absolute -inset-3 rounded-full border border-purple-500/20 animate-spin [animation-duration:30s] [animation-direction:reverse] pointer-events-none" />
+
+              {/* Soft Cyan Halo Backlight */}
+              <div className="absolute inset-4 bg-gradient-to-tr from-cyan-500/30 via-purple-500/20 to-emerald-500/20 rounded-full blur-2xl animate-pulse-glow" />
+
+              {/* Main Avatar Container Frame */}
+              <div className="relative w-full h-full rounded-full p-2 bg-slate-900/90 border-2 border-cyan-500/40 shadow-2xl shadow-cyan-500/20 flex flex-col items-center justify-center overflow-hidden group">
+                <ProfileImage size="hero" showUploadButton={true} />
               </div>
 
-              {/* Terminal Code Snippet */}
-              <div className="space-y-2 text-slate-300 leading-relaxed overflow-x-auto">
-                <p className="text-slate-500">// Mayank's System Capabilities & Tech Profile</p>
-                
-                <div>
-                  <span className="text-purple-400 font-bold">const</span> developer = &#123;
-                </div>
-                
-                <div className="pl-4">
-                  <span className="text-cyan-400">name</span>: <span className="text-emerald-300">"{PERSONAL_INFO.name}"</span>,
-                </div>
-                <div className="pl-4">
-                  <span className="text-cyan-400">education</span>: <span className="text-emerald-300">"B.Tech CSE @ Usha Martin Univ"</span>,
-                </div>
-                <div className="pl-4">
-                  <span className="text-cyan-400">freelanceExperience</span>: <span className="text-amber-300">"4 Years (HTML, CSS, JS, PHP, MySQL)"</span>,
-                </div>
-                <div className="pl-4">
-                  <span className="text-cyan-400">specializations</span>: [
-                  <div className="pl-4 text-emerald-300">
-                    "AI Border Surveillance (YOLOv8 + FastAPI)",<br />
-                    "Autonomous Radar Systems (ESP32 / Arduino)",<br />
-                    "Natural Code AI Platform",<br />
-                    "Smart Blind Stick Assistive Tech"<br />
-                  </div>
-                  ],
-                </div>
-                <div className="pl-4">
-                  <span className="text-cyan-400">contact</span>: <span className="text-emerald-300">"{PERSONAL_INFO.email}"</span>
-                </div>
-                <div>&#125;;</div>
-
-                <div className="pt-2 text-cyan-400 flex items-center gap-1">
-                  <span>&gt; System Status: Ready for new web/hardware deployments...</span>
-                  <span className="w-2 h-4 bg-cyan-400 animate-pulse" />
-                </div>
-              </div>
-
-              {/* Quick Launch Cards */}
-              <div className="pt-3 border-t border-slate-800 grid grid-cols-2 gap-2 text-[11px]">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={onOpenLab}
-                  className="p-2.5 bg-slate-950 hover:bg-slate-800/80 rounded-xl border border-slate-800 hover:border-cyan-500/40 transition-all text-left group/btn shadow-inner"
+              {/* Floating Technology Badges around the profile image */}
+              {techBadges.map((badge, idx) => (
+                <motion.div
+                  key={badge.name}
+                  animate={{
+                    y: [0, -8, 0],
+                    rotate: [0, 2, -2, 0],
+                  }}
+                  transition={{
+                    duration: 4 + idx * 0.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: badge.delay,
+                  }}
+                  className={`absolute ${badge.position} px-3 py-1.5 rounded-full text-xs font-mono font-bold border backdrop-blur-md shadow-xl z-20 flex items-center gap-1.5 cursor-default ${badge.color}`}
                 >
-                  <div className="text-cyan-400 font-bold flex items-center justify-between">
-                    <span>Radar & Vision Lab</span>
-                    <Zap className="w-3.5 h-3.5 group-hover/btn:scale-110 transition-transform" />
-                  </div>
-                  <div className="text-slate-400 text-[10px] mt-0.5">Test YOLOv8 & ESP32 Sonar</div>
-                </motion.button>
+                  <Sparkles className="w-3 h-3 opacity-80" />
+                  <span>{badge.name}</span>
+                </motion.div>
+              ))}
 
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={onOpenContact}
-                  className="p-2.5 bg-slate-950 hover:bg-slate-800/80 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition-all text-left group/btn shadow-inner"
-                >
-                  <div className="text-emerald-400 font-bold flex items-center justify-between">
-                    <span>Hire Mayank</span>
-                    <Mail className="w-3.5 h-3.5 group-hover/btn:scale-110 transition-transform" />
-                  </div>
-                  <div className="text-slate-400 text-[10px] mt-0.5">Start a web / IoT project</div>
-                </motion.button>
-              </div>
             </div>
           </motion.div>
 
@@ -272,4 +275,3 @@ export const Hero: React.FC<HeroProps> = ({
     </section>
   );
 };
-

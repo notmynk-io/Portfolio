@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Terminal, Menu, X, Download, Send, Sparkles, Cpu, Layers, UserCheck } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { ProfileImage } from './ProfileImage';
 
 interface HeaderProps {
   onOpenResume: () => void;
@@ -62,11 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={() => scrollToSection('hero')}
           className="flex items-center gap-2.5 text-left group focus:outline-none"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 via-emerald-500 to-purple-600 p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-md shadow-cyan-500/10">
-            <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-cyan-300 font-mono font-black text-base">
-              MKG
-            </div>
-          </div>
+          <ProfileImage size="sm" showUploadButton={false} />
           <div>
             <span className="font-bold text-slate-100 text-base tracking-tight group-hover:text-cyan-300 transition-colors block leading-tight">
               Mayank Kumar Gupta

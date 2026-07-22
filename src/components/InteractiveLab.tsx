@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
-import { Cpu, ShieldAlert, Radar, Code2, Activity, LayoutDashboard, Terminal } from 'lucide-react';
+import { Cpu, ShieldAlert, Radar, Code2, Activity, LayoutDashboard, Brain, Radio } from 'lucide-react';
 import { SurveillanceSimulator } from './Simulators/SurveillanceSimulator';
 import { RadarSimulator } from './Simulators/RadarSimulator';
 import { CodeAnalyzerSimulator } from './Simulators/CodeAnalyzerSimulator';
 import { BlindStickSimulator } from './Simulators/BlindStickSimulator';
 import { DashboardSimulator } from './Simulators/DashboardSimulator';
+import { InterrogationAnalyzerSimulator } from './Simulators/InterrogationAnalyzerSimulator';
+import { CriminalTrackingSimulator } from './Simulators/CriminalTrackingSimulator';
 
 export const InteractiveLab: React.FC = () => {
-  const [activeLabTab, setActiveLabTab] = useState<'surveillance' | 'radar' | 'code' | 'blindstick' | 'dashboard'>('surveillance');
+  const [activeLabTab, setActiveLabTab] = useState<'surveillance' | 'interrogation' | 'tracking' | 'radar' | 'code' | 'blindstick' | 'dashboard'>('surveillance');
 
   const labItems = [
-    { id: 'surveillance', label: 'YOLOv8 AI Vision', icon: ShieldAlert, desc: 'Object detection & perimeter alerts' },
-    { id: 'radar', label: 'ESP32 Sonar Radar', icon: Radar, desc: '360° distance sweep & target lock' },
-    { id: 'code', label: 'Natural Code AI', icon: Code2, desc: 'Code AST analysis & refactoring' },
-    { id: 'blindstick', label: 'Smart Blind Stick', icon: Activity, desc: 'Ultrasonic haptic & SOS alert' },
+    { id: 'surveillance', label: 'YOLOv8 Border Vision', icon: ShieldAlert, desc: 'Object detection & alerts' },
+    { id: 'interrogation', label: 'AI Micro-Expression', icon: Brain, desc: 'Voice stress & lie analyzer' },
+    { id: 'tracking', label: 'Facial Re-ID City Network', icon: Radio, desc: 'Map pings & suspect dossier' },
+    { id: 'radar', label: 'ESP32 Sonar Radar', icon: Radar, desc: '360° distance sweep & lock' },
+    { id: 'code', label: 'Natural Code AI', icon: Code2, desc: 'Code AST analysis & refactor' },
+    { id: 'blindstick', label: 'Smart Assist Stick', icon: Activity, desc: 'Ultrasonic haptics & SOS' },
     { id: 'dashboard', label: 'Client Web Portal', icon: LayoutDashboard, desc: 'PHP/MySQL auth & metrics' },
   ];
 
@@ -24,13 +28,13 @@ export const InteractiveLab: React.FC = () => {
         {/* Section Header */}
         <div className="text-center space-y-3 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-400">
-            <Cpu className="w-3.5 h-3.5" /> Mayank's Hardware & Software Playground
+            <Cpu className="w-3.5 h-3.5" /> Hardware & Cybersecurity Testing Console
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Interactive Technical Lab
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-heading">
+            Interactive Operations Sandbox
           </h2>
           <p className="text-sm sm:text-base text-slate-400 font-sans">
-            Directly test hardware microcontrollers, computer vision pipelines, and web database engines right inside your browser.
+            Directly test computer vision models, microcontrollers, facial re-identification networks, and voice biomarker analyzers live inside your browser.
           </p>
         </div>
 
@@ -43,9 +47,9 @@ export const InteractiveLab: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => setActiveLabTab(item.id as any)}
-                className={`px-4 py-2.5 rounded-xl text-xs font-semibold shrink-0 flex items-center gap-2 transition-all ${
+                className={`px-3.5 py-2.5 rounded-xl text-xs font-semibold shrink-0 flex items-center gap-2 transition-all ${
                   isActive
-                    ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/40 shadow-lg shadow-cyan-500/10'
+                    ? 'bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/40 shadow-lg shadow-cyan-500/10'
                     : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700'
                 }`}
               >
@@ -62,6 +66,8 @@ export const InteractiveLab: React.FC = () => {
         {/* Active Simulator Container */}
         <div className="pt-2">
           {activeLabTab === 'surveillance' && <SurveillanceSimulator />}
+          {activeLabTab === 'interrogation' && <InterrogationAnalyzerSimulator />}
+          {activeLabTab === 'tracking' && <CriminalTrackingSimulator />}
           {activeLabTab === 'radar' && <RadarSimulator />}
           {activeLabTab === 'code' && <CodeAnalyzerSimulator />}
           {activeLabTab === 'blindstick' && <BlindStickSimulator />}

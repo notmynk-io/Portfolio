@@ -10,7 +10,7 @@ export interface Project {
   highlights: string[];
   techStack: string[];
   featured: boolean;
-  demoType?: 'surveillance' | 'radar' | 'code-analyzer' | 'blind-stick' | 'dashboard';
+  demoType?: 'surveillance' | 'radar' | 'code-analyzer' | 'blind-stick' | 'dashboard' | 'interrogation' | 'tracking';
   githubUrl?: string;
   liveUrl?: string;
   imageUrl?: string;

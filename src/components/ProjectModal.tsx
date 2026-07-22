@@ -1,11 +1,13 @@
 import React from 'react';
 import { Project } from '../types/portfolio';
-import { X, ExternalLink, Github, Sparkles, CheckCircle2, Shield, Cpu, Code2, Play } from 'lucide-react';
+import { X, ExternalLink, Github, Sparkles, CheckCircle2, Play } from 'lucide-react';
 import { SurveillanceSimulator } from './Simulators/SurveillanceSimulator';
 import { RadarSimulator } from './Simulators/RadarSimulator';
 import { CodeAnalyzerSimulator } from './Simulators/CodeAnalyzerSimulator';
 import { BlindStickSimulator } from './Simulators/BlindStickSimulator';
 import { DashboardSimulator } from './Simulators/DashboardSimulator';
+import { InterrogationAnalyzerSimulator } from './Simulators/InterrogationAnalyzerSimulator';
+import { CriminalTrackingSimulator } from './Simulators/CriminalTrackingSimulator';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -19,6 +21,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     switch (project.demoType) {
       case 'surveillance':
         return <SurveillanceSimulator />;
+      case 'interrogation':
+        return <InterrogationAnalyzerSimulator />;
+      case 'tracking':
+        return <CriminalTrackingSimulator />;
       case 'radar':
         return <RadarSimulator />;
       case 'code-analyzer':
@@ -31,8 +37,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         return (
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 text-center space-y-3">
             <Sparkles className="w-8 h-8 text-cyan-400 mx-auto" />
-            <h4 className="text-sm font-bold text-white">System Architecture Configured</h4>
-            <p className="text-xs text-slate-400 max-w-md mx-auto">
+            <h4 className="text-sm font-bold text-white font-heading">System Architecture Configured</h4>
+            <p className="text-xs text-slate-400 max-w-md mx-auto font-sans">
               This system is deployed with custom full-stack backend handlers, security authentication, and optimized database indexing.
             </p>
           </div>
@@ -63,7 +69,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <span className="text-xs font-mono text-slate-400">Period: {project.period}</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-heading">
             {project.title}
           </h2>
 
@@ -87,16 +93,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Description & Key Engineering Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 space-y-3 text-sm text-slate-300 leading-relaxed">
+          <div className="lg:col-span-2 space-y-3 text-sm text-slate-300 leading-relaxed font-sans">
             <h3 className="text-xs font-mono font-bold uppercase text-slate-400 tracking-wider">
-              Project Architecture & Purpose
+              Project Architecture & Security Scope
             </h3>
             <p>{project.description}</p>
           </div>
 
           <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800 space-y-2">
             <h3 className="text-xs font-mono font-bold uppercase text-slate-400 tracking-wider flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Engineering Highlights
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Key Features & Specs
             </h3>
             <ul className="space-y-2 text-xs text-slate-300">
               {project.highlights.map((h, i) => (
@@ -113,10 +119,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         <div className="pt-4 border-t border-slate-800 space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-mono font-bold uppercase text-slate-200 flex items-center gap-2">
-              <Play className="w-4 h-4 text-cyan-400 animate-pulse" /> Live Interactive Sandbox Demo
+              <Play className="w-4 h-4 text-cyan-400 animate-pulse" /> Live Interactive Simulator Engine
             </h3>
             <span className="text-xs text-slate-400 font-mono hidden sm:inline">
-              Interactive Simulation Engine
+              Cybersecurity & AI Live Sandbox
             </span>
           </div>
 

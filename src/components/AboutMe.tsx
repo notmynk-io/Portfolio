@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { ProfileImage } from './ProfileImage';
 import { 
   User, 
   Terminal, 
@@ -69,22 +70,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({ onOpenResume, onOpenContact })
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-full blur-2xl group-hover:scale-125 transition-transform" />
 
               {/* Headshot Visual Frame */}
-              <div className="relative mx-auto w-48 h-48 sm:w-56 sm:h-56 rounded-2xl p-1 bg-gradient-to-br from-cyan-400 via-emerald-400 to-purple-600 shadow-xl">
-                <div className="w-full h-full bg-slate-950 rounded-[14px] overflow-hidden relative flex items-center justify-center group/img">
-                  {/* Styled Avatar Headshot Illustration / Photo */}
-                  <div className="w-full h-full bg-slate-900 flex flex-col items-center justify-center p-4 text-center relative">
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-cyan-500/30 to-purple-500/30 border-2 border-cyan-400/50 flex items-center justify-center text-cyan-300 font-mono font-extrabold text-3xl shadow-inner mb-2">
-                      MKG
-                    </div>
-                    <span className="text-xs font-bold text-white tracking-wider">Mayank K. Gupta</span>
-                    <span className="text-[10px] font-mono text-cyan-400">Jharkhand, India</span>
-                  </div>
-
-                  {/* Status Overlay Pill */}
-                  <div className="absolute bottom-2 left-2 right-2 bg-slate-950/90 backdrop-blur border border-slate-800 py-1 px-2.5 rounded-lg text-center flex items-center justify-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="text-[10px] font-mono text-emerald-300 font-semibold">Available for Projects & Tech Roles</span>
-                  </div>
+              <div className="relative mx-auto flex flex-col items-center justify-center p-2">
+                <ProfileImage size="hero" showUploadButton={true} />
+                <div className="mt-3 text-center">
+                  <div className="text-sm font-bold text-white tracking-wide">Mayank K. Gupta</div>
+                  <div className="text-xs font-mono text-cyan-400">Jharkhand, India</div>
                 </div>
               </div>
 
