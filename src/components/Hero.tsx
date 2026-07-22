@@ -124,7 +124,7 @@ export const Hero: React.FC<HeroProps> = ({
                 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 via-teal-300 to-purple-400 bg-clip-text text-transparent font-mono flex items-center gap-2"
               >
                 <Shield className="w-5 h-5 text-cyan-400 inline shrink-0" />
-                <span>AI Engineer | Cybersecurity Enthusiast | Full Stack Developer</span>
+                <span>Full Stack Developer | Cybersecurity Enthusiast | AI & IOT Engineer</span>
               </motion.div>
             </div>
 
@@ -215,12 +215,12 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="text-xs text-slate-400">Software & Web Dev</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-cyan-400 font-heading">15+ Projects</div>
-                <div className="text-xs text-slate-400">AI & Cyber Systems</div>
+                <div className="text-2xl font-bold text-cyan-400 font-heading">20+ Projects</div>
+                <div className="text-xs text-slate-400">Web, AI, IOT & Cyber Systems</div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-purple-400 font-heading">B.Tech CSE</div>
-                <div className="text-xs text-slate-400">Usha Martin Univ</div>
+                <div className="text-xs text-slate-400">Usha Martin University</div>
               </div>
             </motion.div>
           </motion.div>
