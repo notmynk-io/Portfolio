@@ -26,7 +26,7 @@ export const ExperienceEducation: React.FC = () => {
       credentialId: 'YOLO-AI-80942',
       description: 'Specialized certification covering custom object detection model training, video stream bounding box processing, and edge AI deployment.',
       skills: ['YOLOv8', 'Python', 'OpenCV', 'PyTorch', 'Edge AI'],
-      verifyUrl: 'https://github.com/notmynk/border-wildlife-surveillance-yolov8'
+      verifyUrl: 'https://github.com/notmynk-io/TrackOn-Vision.git'
     },
     {
       id: 'cert-2',
@@ -36,7 +36,7 @@ export const ExperienceEducation: React.FC = () => {
       credentialId: 'ESP32-HARDWARE-312',
       description: 'Mastery in ESP32/Arduino microcontroller firmware, C++ memory optimization, sensor arrays, and serial telemetry protocols.',
       skills: ['ESP32', 'Embedded C++', 'Sensors', 'Telemetry', 'Circuit Design'],
-      verifyUrl: 'https://github.com/notmynk/esp32-autonomous-radar-sonar'
+      verifyUrl: 'https://github.com/notmynk-io/Ardiuno-SmartBlindStick'
     },
     {
       id: 'cert-3',
@@ -46,7 +46,7 @@ export const ExperienceEducation: React.FC = () => {
       credentialId: 'PHP-SEC-902',
       description: 'Comprehensive certification in secure Web Development, PHP/MySQL architecture, password hashing, and CSRF/XSS protection.',
       skills: ['PHP', 'MySQL', 'REST APIs', 'SQL Injection Guard', 'Auth Systems'],
-      verifyUrl: 'https://github.com/notmynk/freelance-php-mysql-dashboards'
+      verifyUrl: 'https://github.com/notmynk-io/Credit-Card-Fraud-Detection.git'
     },
     {
       id: 'cert-4',
@@ -56,7 +56,7 @@ export const ExperienceEducation: React.FC = () => {
       credentialId: 'CYBER-DEF-540',
       description: 'Hardening Linux web servers, firewall configurations, forensic log analysis, and automated anomaly alerting dispatches.',
       skills: ['Linux Security', 'Log Analytics', 'FastAPI Webhooks', 'Network Defense'],
-      verifyUrl: 'https://github.com/notmynk'
+      verifyUrl: 'https://github.com/notmynk-io/webrecon-cybersecurity.git'
     }
   ];
 
