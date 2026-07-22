@@ -14,8 +14,7 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
 }) => {
   // Official embedded profile picture for Mayank Kumar Gupta
   // High-resolution photo matching Mayank's tech engineer profile (glasses, dark hair, beard, burgundy shirt)
-  const OFFICIAL_PROFILE_URL =
-    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800';
+  const OFFICIAL_PROFILE_URL = "/profile.jpg";
 
   const sizeClasses = {
     sm: 'w-8 h-8 text-xs',
