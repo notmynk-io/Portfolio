@@ -23,14 +23,14 @@ export const Footer: React.FC = () => {
               <span className="font-bold text-white tracking-tight text-lg font-heading">Mayank Kumar Gupta</span>
             </div>
             <p className="text-xs text-slate-400 font-mono">
-              AI Engineer | Cybersecurity Enthusiast | Full Stack Developer
+              AI Engineer | Cybersecurity Enthusiast | Full Stack Developer | IOT Engineer 
             </p>
           </div>
 
           {/* Center Status Ping */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400 shadow-inner">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>OPERATIONS STATUS: ALL SYSTEMS ONLINE</span>
+            <span>OPERATIONS STATUS: ALL SYSTEMS ONLINE AND WORKING</span>
           </div>
 
           {/* Social Links & Back to Top */}
@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Credits */}
         <div className="flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-3">
           <div>
-            © {new Date().getFullYear()} Mayank Kumar Gupta. Built for Vercel Serverless & Production Deployment.
+            © {new Date().getFullYear()} Mayank Kumar Gupta © 2026 All Rights Reserved.
           </div>
           <div className="flex items-center gap-1.5 text-slate-400">
             <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
