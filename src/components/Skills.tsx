@@ -14,14 +14,14 @@ interface TechSkillCard {
 
 export const Skills: React.FC = () => {
   const skillsList: TechSkillCard[] = [
-    { name: 'Python', category: 'AI & Systems', experience: 'Advanced', projectsBuilt: '10+ Projects', icon: BrainCircuit, color: 'text-yellow-400 border-yellow-500/40', bgGlow: 'hover:shadow-yellow-500/10' },
+    { name: 'Python', category: 'AI, Backend & Systems', experience: 'Advanced', projectsBuilt: '10+ Projects', icon: BrainCircuit, color: 'text-yellow-400 border-yellow-500/40', bgGlow: 'hover:shadow-yellow-500/10' },
     { name: 'YOLOv8 Computer Vision', category: 'AI Models', experience: 'Specialized', projectsBuilt: '4 Security Models', icon: Shield, color: 'text-red-400 border-red-500/40', bgGlow: 'hover:shadow-red-500/10' },
     { name: 'FastAPI', category: 'Backend Framework', experience: 'Advanced', projectsBuilt: '6 REST APIs', icon: Zap, color: 'text-emerald-400 border-emerald-500/40', bgGlow: 'hover:shadow-emerald-500/10' },
-    { name: 'ESP32 & Arduino', category: 'IoT & Microcontrollers', experience: 'Expert', projectsBuilt: '8 Hardware Builds', icon: HardwareIcon, color: 'text-cyan-400 border-cyan-500/40', bgGlow: 'hover:shadow-cyan-500/10' },
+    { name: 'ESP32 & Arduino', category: 'IoT & Microcontrollers', experience: 'Advanced', projectsBuilt: '4 Hardware Builds', icon: HardwareIcon, color: 'text-cyan-400 border-cyan-500/40', bgGlow: 'hover:shadow-cyan-500/10' },
     { name: 'Embedded C / C++', category: 'Firmware Development', experience: 'Advanced', projectsBuilt: '12 Firmwares', icon: Cpu, color: 'text-purple-400 border-purple-500/40', bgGlow: 'hover:shadow-purple-500/10' },
-    { name: 'React & TypeScript', category: 'Frontend Engineering', experience: 'Advanced', projectsBuilt: '15+ Modern Apps', icon: Globe, color: 'text-blue-400 border-blue-500/40', bgGlow: 'hover:shadow-blue-500/10' },
-    { name: 'PHP & MySQL', category: 'Full-Stack Web', experience: 'Expert (4 Years)', projectsBuilt: '10+ Client Dashboards', icon: Database, color: 'text-pink-400 border-pink-500/40', bgGlow: 'hover:shadow-pink-500/10' },
-    { name: 'Linux & Bash Security', category: 'Cyber Operations', experience: 'Advanced', projectsBuilt: 'Server Hardening', icon: Terminal, color: 'text-amber-400 border-amber-500/40', bgGlow: 'hover:shadow-amber-500/10' },
+    { name: 'React & TypeScript', category: 'Frontend Engineering', experience: 'Expert', projectsBuilt: '10+ Modern Apps', icon: Globe, color: 'text-blue-400 border-blue-500/40', bgGlow: 'hover:shadow-blue-500/10' },
+    { name: 'PHP & MySQL', category: 'Full-Stack Web', experience: 'Expert (4 Years)', projectsBuilt: '15+ Client Dashboards', icon: Database, color: 'text-pink-400 border-pink-500/40', bgGlow: 'hover:shadow-pink-500/10' },
+    { name: 'Linux, Web & Application Security', category: 'Cyber Operations', experience: 'Advanced', projectsBuilt: 'Website Reconnaissance', icon: Terminal, color: 'text-amber-400 border-amber-500/40', bgGlow: 'hover:shadow-amber-500/10' },
   ];
 
   return (
