@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayank Kumar Gupta | Full-Stack, IoT & AI Vision Engineer</title>
+  
+  <!-- Tailwind CSS CDN for instant styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            slate: {
+              950: '#030712',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Canvas Confetti & Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950 min-h-screen flex flex-col relative overflow-x-hidden">
+
+  <!-- Interactive Background Canvas -->
+  <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- Sticky Cyber Header -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-slate-950 font-mono font-extrabold text-sm shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+          MKG
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors">Mayank K. Gupta</span>
+          <span class="text-[10px] font-mono text-cyan-400">Full-Stack & IoT AI Engineer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 font-mono text-xs">
+        <a href="#hero" class="text-slate-300 hover:text-cyan-400 transition-colors">Overview</a>
+        <a href="#about" class="text-slate-300 hover:text-cyan-400 transition-colors">About Me</a>
+        <a href="#projects" class="text-slate-300 hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#lab" class="text-slate-300 hover:text-cyan-400 transition-colors">Interactive Lab</a>
+        <a href="#skills" class="text-slate-300 hover:text-cyan-400 transition-colors">Skills</a>
+        <a href="#contact" class="text-slate-300 hover:text-cyan-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button id="open-resume-btn" class="px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-cyan-500/50 text-xs font-mono text-cyan-300 hover:text-white transition-all flex items-center gap-1.5">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
+        </button>
+
+        <a href="#contact" class="hidden sm:flex px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 font-bold text-xs transition-all shadow-md shadow-cyan-500/20 items-center gap-1.5">
+          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+          <span>Hire Me</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 relative z-10">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="py-20 md:py-28 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-mono text-cyan-400">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Available for Full-Time Roles & Freelance Projects
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-none">
+              Engineering <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Full-Stack Web</span>, IoT Circuits & AI Vision.
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl font-sans leading-relaxed">
+              Hi, I'm <strong class="text-white">Mayank Kumar Gupta</strong> — a B.Tech CSE undergraduate, full-stack developer with 4+ years of freelance experience, embedded hardware builder (ESP32/Arduino), and AI computer vision practitioner (YOLOv8/FastAPI).
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#projects" class="px-6 py-3 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 shadow-lg shadow-cyan-500/20 flex items-center gap-2 transition-all transform hover:scale-[1.02]">
+                <i data-lucide="play" class="w-4 h-4 fill-slate-950"></i> Explore Live Demos
+              </a>
+
+              <a href="#lab" class="px-5 py-3 rounded-xl font-mono text-xs font-bold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-800 flex items-center gap-2 transition-all">
+                <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i> Test Hardware Lab
+              </a>
+            </div>
+
+            <!-- Highlights Pill List -->
+            <div class="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs text-slate-400">
+              <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800/80">
+                <div class="text-cyan-400 font-bold text-base">4+ Years</div>
+                <div>Freelance Web Dev</div>
+              </div>
+              <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800/80">
+                <div class="text-purple-400 font-bold text-base">YOLOv8 + FastAPI</div>
+                <div>AI Surveillance</div>
+              </div>
+              <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800/80 col-span-2 sm:col-span-1">
+                <div class="text-emerald-400 font-bold text-base">ESP32 & Sonar</div>
+                <div>Embedded IoT Systems</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Terminal Visualizer -->
+          <div class="lg:col-span-5">
+            <div class="bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl p-4 font-mono text-xs space-y-3 relative overflow-hidden">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <span class="text-[10px] text-slate-500">mayank@system-terminal:~$</span>
+              </div>
+
+              <div class="space-y-2 text-slate-300">
+                <p class="text-cyan-400">&gt; Loading engineer profile...</p>
+                <p><span class="text-slate-500">[NAME]</span> Mayank Kumar Gupta</p>
+                <p><span class="text-slate-500">[DEGREE]</span> B.Tech CSE (2024-2028)</p>
+                <p><span class="text-slate-500">[LOCATION]</span> Jharkhand, India</p>
+                <p><span class="text-slate-500">[STACK]</span> Python, HTML, CSS, JS, React, PHP, ESP32, YOLOv8, MySQL</p>
+                <p class="text-emerald-400">&gt; Status: All hardware & AI telemetry streams ACTIVE.</p>
+              </div>
+
+              <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] space-y-1">
+                <div class="flex justify-between text-slate-400">
+                  <span>ESP32 Sensor Array:</span>
+                  <span class="text-emerald-400 font-bold">ONLINE</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                  <span>YOLOv8 Detection FPS:</span>
+                  <span class="text-cyan-400 font-bold">38 FPS</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                  <span>Python Flask Backend:</span>
+                  <span class="text-purple-400 font-bold">PORT 3000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="py-20 bg-slate-950/80 border-y border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="text-center space-y-2 max-w-2xl mx-auto">
+          <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Developer Biography</span>
+          <h2 class="text-3xl font-extrabold text-white">About Mayank Kumar Gupta</h2>
+          <p class="text-sm text-slate-400">Full-Stack Web Developer, Embedded IoT Builder & AI Computer Vision Practitioner</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-5 bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-5">
+            <div class="w-32 h-32 mx-auto rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-600 p-1">
+              <div class="w-full h-full bg-slate-950 rounded-[12px] flex flex-col items-center justify-center p-3 text-center">
+                <div class="w-16 h-16 rounded-full bg-slate-900 border border-cyan-400/40 text-cyan-300 font-mono font-bold text-xl flex items-center justify-center mb-1">
+                  MKG
+                </div>
+                <span class="text-xs font-bold text-white">Mayank K. Gupta</span>
+                <span class="text-[10px] text-cyan-400 font-mono">Jharkhand, India</span>
+              </div>
+            </div>
+
+            <div class="space-y-2 text-xs font-mono text-slate-300">
+              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between">
+                <span class="text-slate-400">Education:</span>
+                <span class="text-white font-semibold">B.Tech CSE @ Usha Martin Univ</span>
+              </div>
+              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between">
+                <span class="text-slate-400">Freelance Experience:</span>
+                <span class="text-cyan-400 font-bold">4+ Years</span>
+              </div>
+              <div class="p-2.5 bg-slate-950 rounded-lg border border-slate-800 flex justify-between">
+                <span class="text-slate-400">Mentoring:</span>
+                <span class="text-purple-300">Atal Tinkering Lab Mentor</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-4">
+            <h3 class="text-xl font-bold text-white">My Technical Journey</h3>
+            <div class="space-y-3 text-sm text-slate-300 leading-relaxed font-sans">
+              <p>
+                My passion for programming began over 4 years ago, creating custom web engines and client administration dashboards using <strong>HTML, CSS, JavaScript, PHP, and MySQL</strong>.
+              </p>
+              <p>
+                As I expanded into physical computing, I began programming microcontrollers like the <strong>ESP32 and Arduino</strong>, integrating ultrasonic radar sensors, servos, and haptic feedback to build life-enhancing assistive devices like the <em>Smart Blind Stick</em>.
+              </p>
+              <p>
+                Today, as a Computer Science undergraduate at Usha Martin University, I combine computer vision (<strong>YOLOv8 and OpenCV</strong>) with Python web microservices (<strong>FastAPI & Flask</strong>) for real-time border security and automated AI code analysis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS & DEMOS SECTION -->
+    <section id="projects" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div class="space-y-2">
+            <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Portfolio Showcase</span>
+            <h2 class="text-3xl font-extrabold text-white">Projects & Interactive Simulators</h2>
+            <p class="text-sm text-slate-400">Test live interactive browser-based hardware and AI vision simulators below.</p>
+          </div>
+
+          <!-- Category Filters -->
+          <div id="project-filters" class="flex flex-wrap gap-2 font-mono text-xs">
+            <button data-filter="all" class="filter-btn active px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold">All (6)</button>
+            <button data-filter="web" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 hover:text-white border border-slate-800">Web Dev</button>
+            <button data-filter="iot" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 hover:text-white border border-slate-800">IoT & Hardware</button>
+            <button data-filter="ai" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-900 text-slate-300 hover:text-white border border-slate-800">AI & Vision</button>
+          </div>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Dynamically populated by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE LAB SECTION -->
+    <section id="lab" class="py-20 bg-slate-950/80 border-t border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="text-center space-y-2 max-w-2xl mx-auto">
+          <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Hardware Telemetry</span>
+          <h2 class="text-3xl font-extrabold text-white">Interactive Engineering Lab</h2>
+          <p class="text-sm text-slate-400">Simulate real-time ESP32 ultrasonic readings and YOLOv8 object detection in your browser.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <!-- Control Controls -->
+          <div class="lg:col-span-5 bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-6">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <i data-lucide="sliders" class="w-4 h-4 text-cyan-400"></i> Simulator Controls
+            </h3>
+
+            <div class="space-y-4 font-mono text-xs">
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-slate-300">
+                  <span>ESP32 Radar Sweep Angle:</span>
+                  <span id="lab-angle-val" class="text-cyan-400 font-bold">90°</span>
+                </div>
+                <input type="range" id="lab-angle-slider" min="0" max="180" value="90" class="w-full accent-cyan-400" />
+              </div>
+
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-slate-300">
+                  <span>Sonar Distance Sensor:</span>
+                  <span id="lab-dist-val" class="text-emerald-400 font-bold">45 cm</span>
+                </div>
+                <input type="range" id="lab-dist-slider" min="5" max="200" value="45" class="w-full accent-emerald-400" />
+              </div>
+
+              <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400">YOLOv8 Detection Stream:</span>
+                  <button id="lab-toggle-ai" class="px-2.5 py-1 rounded bg-cyan-500 text-slate-950 font-bold text-[10px]">ACTIVE</button>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400">ESP32 Telemetry Relay:</span>
+                  <span class="text-emerald-400 font-bold">CONNECTED</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Radar Screen Display -->
+          <div class="lg:col-span-7 bg-slate-900 p-6 rounded-2xl border border-slate-800 flex flex-col items-center justify-center relative min-h-[300px]">
+            <canvas id="lab-radar-canvas" width="400" height="250" class="w-full max-w-md bg-slate-950 rounded-xl border border-slate-800/80 shadow-inner"></canvas>
+            <div id="lab-status-text" class="text-xs font-mono text-cyan-400 mt-3">Target Distance: 45 cm | Angle: 90° | Status: MONITORING</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS MATRIX SECTION -->
+    <section id="skills" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="text-center space-y-2 max-w-2xl mx-auto">
+          <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Technical Proficiency</span>
+          <h2 class="text-3xl font-extrabold text-white">Skills & Technologies</h2>
+          <p class="text-sm text-slate-400">Comprehensive toolset spanning web applications, microcontrollers, and artificial intelligence.</p>
+        </div>
+
+        <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Dynamically populated by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-slate-950/90 border-t border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="text-center space-y-2 max-w-2xl mx-auto">
+          <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Get In Touch</span>
+          <h2 class="text-3xl font-extrabold text-white">Dispatch Message to Mayank</h2>
+          <p class="text-sm text-slate-400">Have a project, freelance inquiry, or job opportunity? Send a message directly.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto">
+          <!-- Left Info Card -->
+          <div class="lg:col-span-5 bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-6">
+            <h3 class="text-lg font-bold text-white">Direct Contact Info</h3>
+
+            <div class="space-y-4 text-xs font-mono">
+              <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-1">
+                <span class="text-slate-500">Email Address:</span>
+                <div class="flex items-center justify-between text-cyan-300 font-bold">
+                  <span>notmynk.exe@gmail.com</span>
+                  <button id="copy-email-btn" class="p-1 hover:text-white transition-colors" title="Copy Email">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-1">
+                <span class="text-slate-500">Location:</span>
+                <div class="text-slate-200">Jharkhand, India (GMT +5:30)</div>
+              </div>
+
+              <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-1">
+                <span class="text-slate-500">Primary Roles:</span>
+                <div class="text-purple-300 font-semibold">Full-Stack Dev / IoT / Computer Vision</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Contact Form -->
+          <div class="lg:col-span-7 bg-slate-900 p-6 rounded-2xl border border-slate-800">
+            <form id="contact-form" class="space-y-4 text-xs font-mono">
+              <div>
+                <label class="block text-slate-400 mb-1">Your Full Name *</label>
+                <input type="text" id="form-name" required placeholder="John Doe" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-cyan-400" />
+              </div>
+
+              <div>
+                <label class="block text-slate-400 mb-1">Your Email *</label>
+                <input type="email" id="form-email" required placeholder="john@example.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-cyan-400" />
+              </div>
+
+              <div>
+                <label class="block text-slate-400 mb-1">Inquiry Category</label>
+                <select id="form-category" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-cyan-400">
+                  <option value="Web Development">Full-Stack Web Development</option>
+                  <option value="IoT & Hardware">IoT & Embedded Systems</option>
+                  <option value="AI Computer Vision">AI & YOLOv8 Computer Vision</option>
+                  <option value="Full-Time Hiring">Full-Time Job Opportunity</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-slate-400 mb-1">Project Details / Message *</label>
+                <textarea id="form-message" required rows="4" placeholder="Describe your project, goals, or inquiry..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-cyan-400"></textarea>
+              </div>
+
+              <button type="submit" id="form-submit-btn" class="w-full py-3 rounded-xl font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 flex items-center justify-center gap-2 transition-all">
+                <i data-lucide="send" class="w-4 h-4"></i> Dispatch Message to Mayank
+              </button>
+
+              <div id="form-response" class="hidden p-3 rounded-xl text-xs"></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-8 text-center font-mono text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>© 2026 Mayank Kumar Gupta. Engineered with Vanilla HTML, CSS, JavaScript & Python Backend.</p>
+    </div>
+  </footer>
+
+  <!-- PROJECT MODAL -->
+  <div id="project-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 space-y-6 relative text-slate-100">
+      <button id="close-modal-btn" class="absolute top-4 right-4 p-2 rounded-lg bg-slate-950 text-slate-400 hover:text-white border border-slate-800">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div id="modal-content" class="space-y-4 font-mono text-xs">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUME MODAL -->
+  <div id="resume-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 space-y-6 relative text-slate-100">
+      <button id="close-resume-btn" class="absolute top-4 right-4 p-2 rounded-lg bg-slate-950 text-slate-400 hover:text-white border border-slate-800">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="space-y-4">
+        <div class="flex items-center gap-2 text-cyan-400 font-mono text-xs">
+          <i data-lucide="file-text" class="w-4 h-4"></i> Professional Resume
+        </div>
+        <h3 class="text-xl font-bold text-white">Mayank Kumar Gupta</h3>
+        <p class="text-xs text-slate-400">B.Tech Computer Science & Engineering (2024 - 2028)</p>
+
+        <div class="space-y-3 text-xs text-slate-300 font-sans border-t border-slate-800 pt-3">
+          <h4 class="font-bold text-white font-mono uppercase text-cyan-400">Core Experience</h4>
+          <p><strong>Freelance Full-Stack Developer (2022 - Present):</strong> Developed 10+ custom client web platforms, custom dashboards, and PHP/MySQL databases.</p>
+          <p><strong>STEM & IoT Mentor @ Atal Tinkering Lab:</strong> Mentored junior students in Arduino, ESP32 microcontrollers, and hardware automation.</p>
+          
+          <h4 class="font-bold text-white font-mono uppercase text-cyan-400 pt-2">Technical Toolset</h4>
+          <p>Python, C/C++, HTML5, CSS3, JavaScript, PHP, React, FastAPI, OpenCV, YOLOv8, ESP32, Arduino, MySQL, Git, AWS EC2.</p>
+        </div>
+
+        <div class="pt-4 flex justify-end">
+          <a href="data:text/plain;charset=utf-8,Mayank%20Kumar%20Gupta%20-%20Full%20Stack%20%26%20IoT%20Resume" download="Mayank_Kumar_Gupta_Resume.txt" class="px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-2">
+            <i data-lucide="download" class="w-4 h-4"></i> Download Resume Text
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
