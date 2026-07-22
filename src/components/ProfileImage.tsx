@@ -12,8 +12,6 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
   size = 'md',
   alt = 'Mayank Kumar Gupta - AI Engineer & Developer',
 }) => {
-  // Official embedded profile picture for Mayank Kumar Gupta
-  // High-resolution photo matching Mayank's tech engineer profile (glasses, dark hair, beard, burgundy shirt)
   const OFFICIAL_PROFILE_URL = "/profile.jpg";
 
   const sizeClasses = {
