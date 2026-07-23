@@ -18,7 +18,7 @@ export const PERSONAL_INFO = {
 export const PROJECTS_DATA: Project[] = [
   {
     id: "border-wildlife-surveillance",
-    title: "AI Border Surveillance System",
+    title: "AI Border surveillance and threat detection",
     subtitle: "Drone Feed Monitoring, Real-time Object Detection & YOLOv8 Threat Alerts",
     category: "ai",
     categoryLabel: "AI & Computer Vision",
@@ -56,7 +56,7 @@ export const PROJECTS_DATA: Project[] = [
     techStack: ["Python", "YOLOv8", "OpenCV", "FastAPI", "React", "Whisper AI"],
     featured: true,
     demoType: "interrogation",
-    githubUrl: "https://github.com/notmynk/interrogation-analyser-tracking",
+    githubUrl: "https://github.com/notmynk-io/TrackOn-Vision",
     liveUrl: "https://interrogation-tracker.demo.app",
     imageUrl: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
   },
@@ -78,7 +78,7 @@ export const PROJECTS_DATA: Project[] = [
     techStack: ["Python", "YOLOv8", "FastAPI", "React", "Tailwind CSS", "OpenCV"],
     featured: true,
     demoType: "tracking",
-    githubUrl: "https://github.com/notmynk/criminal-tracking-facial-reid",
+    githubUrl: "https://github.com/notmynk-io/TrackOn-Vision",
     liveUrl: "https://criminal-tracking-network.demo.app",
     imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
   },
@@ -100,19 +100,19 @@ export const PROJECTS_DATA: Project[] = [
     techStack: ["ESP32", "Arduino", "Embedded C++", "Ultrasonic Sensors", "Servo Control"],
     featured: false,
     demoType: "radar",
-    githubUrl: "https://github.com/notmynk/esp32-autonomous-radar-sonar",
+    githubUrl: "https://github.com/notmynk-io/Ardiuno-SmartBlindStick.git",
     liveUrl: "https://esp32-radar-lab.demo.app",
     imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
   },
   {
-    id: "natural-code-platform",
-    title: "Natural Code AI Platform",
-    subtitle: "AI-Powered Code Understanding, Natural Language Refactoring & Syntax Converter",
+    id: "SyntaxLess",
+    title: "SyntaxLess is designed as an Intent-First, AI-Native IDE. ",
+    subtitle: "Need Something built ? no syntax required only intent is required.",
     category: "ai",
     categoryLabel: "AI Systems & Tooling",
     period: "2023 - Present",
-    summary: "Developing an AI tool that assists developers in analyzing, explaining, and refactoring source code in natural language.",
-    description: "An AI-powered development environment that accepts complex source code snippets across multiple languages (PHP, C++, Python, JavaScript) and generates instant explanations, bug detection, and automated refactoring suggestions.",
+    summary: "Tri-directional synchronization, Monaco editor, React Flow visual diagrams, multi-level explanations, AI assistant quick tools.",
+    description: "SyntaxLess decouples abstract software intent from syntax by converting all three representations (Natural Language, Visual Node Graph, and Source Code) into a unified internal AST representation.",
     highlights: [
       "Multi-language code parser supporting C++, Python, PHP, and JavaScript.",
       "Natural language explanation generator for complex algorithms and memory allocation.",
@@ -121,8 +121,8 @@ export const PROJECTS_DATA: Project[] = [
     techStack: ["Python", "React", "FastAPI", "JavaScript", "AWS Lambda", "AST Parsers"],
     featured: false,
     demoType: "code-analyzer",
-    githubUrl: "https://github.com/notmynk/natural-code-ai-explainer",
-    liveUrl: "https://natural-code-ai.demo.app",
+    githubUrl: "https://github.com/notmynk-io/SyntaxLess",
+    liveUrl: "https://syntax-less.vercel.app/",
     imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
   },
   {
@@ -142,8 +142,8 @@ export const PROJECTS_DATA: Project[] = [
     techStack: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL", "phpMyAdmin", "React", "Tailwind CSS"],
     featured: false,
     demoType: "dashboard",
-    githubUrl: "https://github.com/notmynk/freelance-php-mysql-dashboards",
-    liveUrl: "https://client-dashboard-demo.app",
+    githubUrl: "https://github.com/notmynk-io/Klin-Website_Builder",
+    liveUrl: "https://klin-website-builder.vercel.app/",
     imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
   }
 ];
