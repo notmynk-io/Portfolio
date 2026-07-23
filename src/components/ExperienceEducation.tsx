@@ -46,7 +46,7 @@ export const ExperienceEducation: React.FC = () => {
       credentialId: 'PHP-SEC-902',
       description: 'Comprehensive certification in secure Web Development, PHP/MySQL architecture, password hashing, and CSRF/XSS protection.',
       skills: ['PHP', 'MySQL', 'REST APIs', 'SQL Injection Guard', 'Auth Systems'],
-      verifyUrl: 'https://github.com/notmynk-io/Credit-Card-Fraud-Detection.git'
+      verifyUrl: 'https://klin-website-builder.vercel.app/'
     },
     {
       id: 'cert-4',
