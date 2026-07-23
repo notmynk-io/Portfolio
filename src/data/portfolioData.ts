@@ -8,17 +8,17 @@ export const PERSONAL_INFO = {
   email: "notmynk.io@gmail.com",
   phone: "+91 97098 49242",
   linkedin: "https://lstwr.com/linkedin-mynkgupta",
-  github: "https://github.com/notmynk",
+  github: "https://github.com/notmynk-io",
   location: "Jharkhand, India",
   freelanceStatus: "Available for Security & AI Consultations",
   yearsExperience: "4+ Years",
-  projectsCompleted: "15+ Projects"
+  projectsCompleted: "20+ Projects"
 };
 
 export const PROJECTS_DATA: Project[] = [
   {
     id: "border-wildlife-surveillance",
-    title: "AI Border & Wildlife Surveillance System",
+    title: "AI Border Surveillance System",
     subtitle: "Drone Feed Monitoring, Real-time Object Detection & YOLOv8 Threat Alerts",
     category: "ai",
     categoryLabel: "AI & Computer Vision",
@@ -34,7 +34,7 @@ export const PROJECTS_DATA: Project[] = [
     techStack: ["Python", "YOLOv8", "FastAPI", "OpenCV", "ESP32", "AWS EC2", "WebSockets"],
     featured: true,
     demoType: "surveillance",
-    githubUrl: "https://github.com/notmynk/border-wildlife-surveillance-yolov8",
+    githubUrl: "https://github.com/notmynk-io/TrackOn-Vision",
     liveUrl: "https://border-surveillance-ai.demo.app",
     imageUrl: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80"
   },
